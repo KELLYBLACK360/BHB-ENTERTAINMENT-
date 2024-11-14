@@ -1,16 +1,108 @@
-workspace.xml
-junitvmwatcher*.properties
-build.properties
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BHB Entertainment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section with Animated Logo -->
+    <header>
+        <div class="logo-animation">
+            <img src="logo.png" alt="BHB Entertainment Logo" class="logo">
+            <h1>BHB Entertainment</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <section id="home">
+            <h2>Welcome to BHB Entertainment</h2>
+            <p>Your one-stop destination for all entertainment needs!</p>
+        </section>
+        
+        <section id="services">
+            <h2>Our Services</h2>
+            <p>Editing, Video & Photo Shooting, Singing, Songwriting, Scriptwriting, Acting.</p>
+        </section>
+        
+        <section id="portfolio">
+            <h2>Portfolio</h2>
+            <p>Check out our latest projects!</p>
+        </section>
+        
+        <section id="about">
+            <h2>About Us</h2>
+            <p>We bring creativity to life through a variety of entertainment services.</p>
+        </section>
+        
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message"></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+    
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 BHB Entertainment</p>
+    </footer>
+    
+    <!-- Link to JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
 
-# generated java classes and java source files
-#   manually add any custom artifacts that can't be generated from the models
-#   http://confluence.jetbrains.com/display/MPSD25/HowTo+--+MPS+and+Git
-classes_gen
-source_gen
-source_gen.caches
+// Smooth Scrolling Script
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        document.querySelector(targetId).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
 
-# generated test code and test results
-test_gen
-test_gen.caches
-TEST-*.xml
-junit*.properties
+// Logo Hover Animation
+const logo = document.querySelector('.logo');
+logo.addEventListener('mouseover', () => {
+    logo.style.transform = 'scale(1.1)';
+});
+logo.addEventListener('mouseout', () => {
+    logo.style.transform = 'scale(1)';
+});
+
+// Contact Form Validation
+document.querySelector('form').addEventListener('submit', function(e) {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    if (!name || !email || !message) {
+        alert('Please fill in all fields.');
+        e.preventDefault();
+    } else {
+        alert('Thank you for contacting us, ' + name + '!');
+    }
+});
+
+// Dynamic Date in Footer
+const currentYear = new Date().getFullYear();
+document.querySelector('footer p').innerHTML = `&copy; ${currentYear} BHB Entertainment`;
